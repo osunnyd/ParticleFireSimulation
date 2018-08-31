@@ -31,7 +31,7 @@ namespace particles {
 			m_yspeed = -m_yspeed;
 		}
 	}
-	// test
+	// test2
 
 	 Particles::~Particles()
 	{

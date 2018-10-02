@@ -1,35 +1,23 @@
+#define _USE_MATH_DEFINES
+
 #include "Particles.h"
 #include <stdlib.h>
+#include <math.h>
+
 namespace particles {
 
-	Particles::Particles()
+	Particles::Particles(): m_x(0), m_y(0)
 	{
-		// random coordinates of particles on screen
-		m_x = ((2.0 * rand()) / RAND_MAX) - 1; // random number b/w -1 and 1
-		m_y = ((2.0 * rand()) / RAND_MAX) - 1;
-		
-		//particles randomly moving on screen
-		 m_xspeed = 0.001*(((2.0*rand()) / RAND_MAX) - 1);
-		 m_yspeed = 0.001*(((2.0*rand()) / RAND_MAX) - 1);
+		m_direction = (2 * M_PI  * rand()) / RAND_MAX;
+		m_speed = (0.001 * rand()) / RAND_MAX;
 	}
-
+	
 	void  Particles::update()
 	{
-		//update random particle location
-		m_x += m_xspeed;
-		m_y += m_yspeed;
-
-		//particles bounce off sides and doesn't go off screen because speeds reverse it back into bounds
-		if (m_x <= -1.0 || m_x >= 1.0)
-		{
-			//if condition for m_x particles to not go off screen
-			m_xspeed = -m_xspeed; 
-		}
-		if (m_y <= -1.0 || m_y >= 1.0)
-		{
-			//if condition for m_y particles to not go off screen
-			m_yspeed = -m_yspeed;
-		}
+		double x_speed = m_speed * cos(m_direction);
+		double y_speed = m_speed * sin(m_direction);
+		m_x += x_speed;
+		m_y += y_speed;
 	}
 	// test2
 

@@ -9,8 +9,8 @@ namespace particles {
 		double m_y;
 
 		//speed and direction of particles
-		double m_xspeed;
-		double m_yspeed;
+		double m_speed;
+		double m_direction; 
 	public:
 		Particles();
 		void update();

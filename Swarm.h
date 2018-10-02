@@ -7,7 +7,7 @@ namespace particles {
 	private:
 		Particles * m_particles; // particles instance variable
 	public:
-		const static int NPARTICLES = 1000;
+		const static int NPARTICLES = 5000;
 		Swarm();
 		void update();
 		virtual ~Swarm();

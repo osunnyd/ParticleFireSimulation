@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		{
 			Particles particle = pParticles[i]; // getting individual particles one by one
 			int x = (particle.m_x + 1) * Screen::SCREEN_WIDTH / 2; // add 1 so particle range is entire width
-			int y = (particle.m_y + 1) * Screen::SCREEN_HEIGHT / 2; // add 1 so particle range is entire height
+			int y = (particle.m_y  * Screen::SCREEN_WIDTH / 2) + Screen::SCREEN_HEIGHT / 2;
 			screen.setPixel(x, y, red, green, blue); // particles are randomly changing colors uniformly 
 		}
 
